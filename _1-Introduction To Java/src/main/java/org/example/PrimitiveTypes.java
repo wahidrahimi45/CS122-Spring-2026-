@@ -62,6 +62,13 @@ public class PrimitiveTypes {
 //        System.out.println((long) num);
 
         checkPrimitiveFit(444);
+
+        int intNumber = 1000000;
+
+        short shortNumber = (short) intNumber;
+
+        System.out.println(intNumber);
+        System.out.println(shortNumber);
     }
     public static void checkPrimitiveFit(double value)
     {

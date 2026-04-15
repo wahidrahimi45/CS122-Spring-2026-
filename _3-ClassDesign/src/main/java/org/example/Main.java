@@ -24,6 +24,8 @@ How class and OOP solve these problems
 	cleaner and more realistic design
  */
 
+import org.example.personnel.Employee;
+
 public class Main {
     public static void main(String[] args) {
 //        int id = 101;
@@ -43,40 +45,46 @@ public class Main {
 //        boolean active2 = true;
 
         // ClassName variableName = new ClassName();
-        Employee employee1 = new Employee();
+//        Employee employee1 = new Employee();
+//
+//        employee1.id = 101;
+//        employee1.firstName = "Linda";
+//        employee1.lastName = "Smith";
+//        employee1.department ="HR";
+//        employee1.salary = 200000;
+//        employee1.yearsOfExperience = 4;
+//        employee1.active = true;
+//
+//        Employee employee2 = new Employee();
+//
+//        employee2.id = 102;
+//        employee2.firstName = "Bob";
+//        employee2.lastName = "Smith";
+//        employee2.department ="IT";
+//        employee2.salary = 679000.78;
+//        employee2.yearsOfExperience = 5;
+//        employee2.active = false;
+//
+//        printInfo(employee1);
+//        printInfo(employee2);
+//
+//        Employee employee3 = new Employee();
+//        printInfo(employee3);
+        int intNum1 = 235;
 
-        employee1.id = 101;
-        employee1.firstName = "Linda";
-        employee1.lastName = "Smith";
-        employee1.department ="HR";
-        employee1.salary = 200000;
-        employee1.yearsOfExperience = 4;
-        employee1.active = true;
+        byte intNum2 = (byte) intNum1;
 
-        Employee employee2 = new Employee();
 
-        employee2.id = 102;
-        employee2.firstName = "Bob";
-        employee2.lastName = "Smith";
-        employee2.department ="IT";
-        employee2.salary = 679000.78;
-        employee2.yearsOfExperience = 5;
-        employee2.active = false;
-
-        printInfo(employee1);
-        printInfo(employee2);
-
-        Employee employee3 = new Employee();
-        printInfo(employee3);
+        System.out.println(intNum2);
     }
-    public static void printInfo(Employee employee){
-        System.out.println("Employee ID: "+ employee.id);
-        System.out.println("Employee First Name: "+ employee.firstName);
-        System.out.println("Employee Last Name: "+ employee.lastName);
-        System.out.println("Employee Dept: "+ employee.department);
-        System.out.println("Active: "+ (employee.active ? "Active" : "Not Active"));
-        System.out.println();
-    }
+//    public static void printInfo(Employee employee){
+//        System.out.println("Employee ID: "+ employee.id);
+//        System.out.println("Employee First Name: "+ employee.firstName);
+//        System.out.println("Employee Last Name: "+ employee.lastName);
+//        System.out.println("Employee Dept: "+ employee.department);
+//        System.out.println("Active: "+ (employee.active ? "Active" : "Not Active"));
+//        System.out.println();
+//    }
     public static void printInfo(int id, String firstName, String lastName, String dep, double salary, boolean active)
     {
         System.out.println("Id: "+ id);
