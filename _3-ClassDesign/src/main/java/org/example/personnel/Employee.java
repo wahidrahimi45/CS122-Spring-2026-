@@ -1,5 +1,18 @@
 package org.example.personnel;
 
+/*
+    Constructor Chaining (Java)
+
+    Constructor chaining means calling one constructor from another constructor in the
+    same class or in the parent class to reuse initialization code.
+
+    Instead of repeating the same initialization logic in multiple constructors, we chain them together.
+
+    In Java this is done using:
+
+    this() → calls another constructor in the same class
+    super() → calls the parent class constructor
+ */
 public class Employee {
     // Data, Fields, Attributes, Data Member
     private int id;
@@ -9,18 +22,83 @@ public class Employee {
     private double salary;
     private int yearsOfExperience;
     private boolean active;
+    private String[] departments = {"HR", "IT", "FINANCE", "MANAGEMENT"};
 
 
     // Constructor ( 1- No arg constructor (default constructor), 2- Parameterized Constructor)
-    public Employee()
-    {
-       //System.out.println("An Employee object is created");
-        firstName = "Unknown";
-        lastName = "Unknown";
-        department = "Not Defined";
-        salary = 10.5;
-        yearsOfExperience = 1;
-        active = true;
+//    public Employee()
+//    {
+//       //System.out.println("An Employee object is created");
+//        firstName = "Unknown";
+//        lastName = "Unknown";
+//        department = "Not Defined";
+//        salary = 10.5;
+//        yearsOfExperience = 1;
+//        active = true;
+//    }
+
+//    public Employee(int id, String firstName, String lastName, String department, double salary, int yearsOfExperience, boolean active)
+//    {
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.department = department;
+//        this.salary = salary;
+//        this.yearsOfExperience = yearsOfExperience;
+//        this.active = active;
+//    }
+//    public Employee(int id, String firstName, String lastName)
+//    {
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//
+//        this.department = "HR";
+//        this.salary = 80000;
+//        this.yearsOfExperience = 1;
+//        this.active = true;
+//    }
+
+
+    // Constructor chaining
+    // Constructor 1
+    public Employee() {
+        this.active = true;
+    }
+
+    // Constructor 2
+    public Employee(int id, String firstName) {
+        this(); // calls default constructor
+        if(isValidId(id))
+            this.id = id;
+        if(isValidName(firstName))
+            this.firstName = firstName;
+
+    }
+
+    // Constructor 3
+    public Employee(int id, String firstName, String lastName) {
+        this(id, firstName); // calls constructor 2
+        if(isValidName(lastName))
+            this.lastName = lastName;
+    }
+
+    // Constructor 4
+    public Employee(int id, String firstName, String lastName, String department) {
+        this(id, firstName, lastName); // calls constructor 3
+        if(isValidDepartment(department))
+            this.department = department;
+    }
+
+    // Constructor 5 (Full constructor)
+    public Employee(int id, String firstName, String lastName,
+                    String department, double salary,
+                    int yearsOfExperience, boolean active) {
+
+        this(id, firstName, lastName, department); // calls constructor 4
+        this.salary = salary;
+        this.yearsOfExperience = yearsOfExperience;
+        this.active = active;
     }
 
     // Getters and Setters
@@ -28,14 +106,13 @@ public class Employee {
     {
         return id;
     }
-    public void setId(int newId)
+    public void setId(int id)
     {
-        if(newId < 0 || newId  > 1000)
-        {
-            System.out.println("Invalid ID, Please try again");
-            return;
-        }
-        id = newId;
+
+        if(isValidId(id))
+            this.id = id;
+        else
+            this.id = 1000;
     }
 
     // private String firstName;
@@ -49,13 +126,8 @@ public class Employee {
     // setter for the firstName
     public void setFirstName(String firstName)
     {
-        // validate the firstName
-        if(firstName == null || firstName.isEmpty() || firstName.length() > 16)
-        {
-            System.out.println("Invalid first Name");
-            return;
-        }
-        this.firstName = firstName;
+        if(isValidName(firstName))
+            this.firstName = firstName;
     }
 
     // getter for salary
@@ -80,15 +152,18 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(isValidName(lastName))
+            this.lastName = lastName;
     }
 
     public String getDepartment() {
+
         return department;
     }
 
     public void setDepartment(String department) {
-        this.department = department;
+        if(isValidDepartment(department))
+            this.department = department;
     }
 
     public int getYearsOfExperience() {
@@ -157,6 +232,33 @@ public class Employee {
         this.increaseSalary(10);
     }
 
+    // private method for internal logic
+    private boolean isValidId(int id)
+    {
+        if(id < 0 || id > 1000)
+            return false;
+        return true;
+    }
+    private boolean isValidName(String name)
+    {
+        if(name == null || name.isEmpty() || name.length() > 20)
+        {
+            return false;
+        }else {
+            return true;
+        }
+    }
+    private boolean isValidDepartment(String department)
+    {
+        for (String dep : departments)
+        {
+            if(department.toUpperCase().equals(dep.toUpperCase()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public void printEmployeeInformation()
     {
         System.out.println("ID: " + this.id);
@@ -164,7 +266,10 @@ public class Employee {
         System.out.println("Last Name: " + this.lastName);
         System.out.println("Salary: " + this.salary);
         System.out.println("Department: "+ this.department);
-
+        System.out.println("Year of Experience: "+ this.getYearsOfExperience());
+        System.out.println("Active: "+ (this.isActive() ? "Active": "Not Active"));
+        System.out.println("------------------------------------------------------");
+        System.out.println();
     }
     // toString() method
 //    public String toString()

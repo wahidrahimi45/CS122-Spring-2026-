@@ -6,7 +6,7 @@ import org.example.personnel.Employee;
 public class EmployeeRunner {
     public static void main(String[] args) {
         // ClassName variableName = new ClassName();
-        Employee employee1 = new Employee();
+        //Employee employee1 = new Employee();
 
 //        employee1.id = 101;
 //        employee1.firstName = "Linda";
@@ -45,13 +45,13 @@ public class EmployeeRunner {
 //        printInfo(employee3);
 
 
-        Employee alex = new Employee();
-        alex.setId(101);
-        alex.setFirstName("Alex");
-        alex.setLastName("Smith");
-        alex.setSalary(100000);
-        alex.setActive(true);
-        alex.setYearsOfExperience(8);
+//        Employee alex = new Employee();
+//        alex.setId(101);
+//        alex.setFirstName("Alex");
+//        alex.setLastName("Smith");
+//        alex.setSalary(100000);
+//        alex.setActive(true);
+//        alex.setYearsOfExperience(8);
 
 //        alex.printEmployeeInformation();
 //
@@ -65,9 +65,9 @@ public class EmployeeRunner {
         String name = "Wahid";
         int age = 30;
 
-        System.out.println(name);
-        System.out.println(age);
-        System.out.println(alex);
+//        System.out.println(name);
+//        System.out.println(age);
+//        System.out.println(alex);
 
 
 
