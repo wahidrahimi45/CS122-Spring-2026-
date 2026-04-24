@@ -1,4 +1,4 @@
-package com.grc.withoutinheritance;
+package com.grc.withinheritance;
 
 /*
     Problems with not using inheritance
@@ -15,17 +15,22 @@ public class Main {
         Dog dog2 = new Dog("Max", 5, "Black", "Canis lupus familiaris", "German Shepherd");
         Dog dog3 = new Dog("Rocky", 2, "White", "Canis lupus familiaris", "Bulldog");
 
-        dog1.printInfo();
-        dog1.eat();
-        dog1.fetch();
+        Dog dog4 = dog1;
 
-        dog2.printInfo();
-        dog2.makeSound();
-        dog2.play();
-
-        dog3.printInfo();
-        dog3.sleep();
-        dog3.giveBirth();
+//        System.out.println(dog1 == dog4);
+//        System.out.println(dog1.equals(dog4));
+//        dog1.printInfo();
+//        dog1.eat();
+//        dog1.fetch();
+//        int age = 10;
+//
+//        dog2.printInfo();
+//        dog2.makeSound();
+//        dog2.play();
+//
+//        dog3.printInfo();
+//        dog3.sleep();
+//        dog3.giveBirth();
 
         System.out.println("================================");
 
@@ -41,7 +46,7 @@ public class Main {
         cat2.makeSound();
 
         cat3.printInfo();
-        cat3.play();
+        //cat3.play();
         cat3.giveBirth();
 
         System.out.println("================================");
@@ -77,15 +82,34 @@ public class Main {
         duck3.printInfo();
         duck3.layEgg();
 
-        // group of dog objects
-//        Dog[] dogs = new Dog[3];
-//        dogs[0] = dog1;
-//        dogs[1] = dog2;
-//        dogs[2] = dog3;
-//        dogs[4] = new Dog(); // not allowed
 
-        //Dog[] dogs = {dog1,dog2, dog3, cat3};
+        Dog dog = new Dog("Buddy", 3, "Brown", "Canis lupus", "Labrador");
+        Cat cat = new Cat("Kitty", 2, "White", "Felis catus");
+        Eagle eagle = new Eagle("Sky", 5, "Brown", "Aquila", 2.5, 120);
+        Duck duck = new Duck("Daffy", 2, "White", "Anas", 1.2, 60);
 
-        Duck[] ducks = {duck1,duck2,duck3};
+        dog.printInfo();
+        dog.fetch();
+        dog.giveBirth(); // inherited from Mammal
+        dog.eat();       // inherited from Animal
+
+        System.out.println("--------------");
+
+        cat.printInfo();
+        cat.climb();
+        cat.giveBirth();
+
+        System.out.println("--------------");
+
+        eagle.printInfo();
+        eagle.fly();     // from Bird
+        eagle.hunt();
+
+        System.out.println("--------------");
+
+        duck.printInfo();
+        duck.swim();
+        duck.fly();
+
     }
 }
