@@ -65,4 +65,10 @@ public class Dice {
     {
         return this.random;
     }
+    @Override
+    public String toString()
+    {
+        return
+                "Side: "+ this.getSide();
+    }
 }

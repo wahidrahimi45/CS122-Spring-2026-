@@ -111,5 +111,8 @@ public class Main {
         duck.swim();
         duck.fly();
 
+
+
+
     }
 }

@@ -1,0 +1,21 @@
+
+Class Members:
+1- Variables (Data, Fields)
+    a- instance variable (non-static variables): it belongs to object
+    b- static variable: it belongs to class itself
+2- Constructor
+3- Method
+    a- instance method
+    b- static method
+4- Block
+        a- instance block
+        b- static block
+5- Nested Type (Nested Class)
+6- Constants
+
+Rule:
+1- Static members cannot access non-static members directly.
+2- Non-static member can access static members and also non-static members.
+3- Cannot override static methods.
+4- static members are shared
+5- we cannot use  (this) keyword inside the static member
